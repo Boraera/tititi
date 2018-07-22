@@ -42,10 +42,10 @@ mongoose.Promise = global.Promise;
 // MongoDB Connection
 mongoose.connect(serverConfig.mongoURL, (error) => {
   if (error) {
-    console.error('Please make sure Mongodb is installed and running!'); // eslint-disable-line no-console
+    console.error('Please make sure Mongodb is installed and running at ', serverConfig.mongoURL); // eslint-disable-line no-console
     throw error;
   }
-
+  console.error('Successfully connected to db  ', serverConfig.mongoURL); // eslint-disable-line no-console
   // feed some dummy data in DB.
   dummyData();
 });
@@ -142,7 +142,7 @@ app.use((req, res, next) => {
 // start app
 app.listen(serverConfig.port, (error) => {
   if (!error) {
-    console.log(`MERN is running on port: ${serverConfig.port}! Build something amazing!`); // eslint-disable-line
+    console.log(`Happiness: MERN is running on port: ${serverConfig.port}! Build something amazing!`); // eslint-disable-line
   }
 });
 

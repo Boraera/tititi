@@ -249,13 +249,13 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	var config = {
-	  mongoURL: process.env.MONGO_URL || 'mongodb://localhost:27017/mern-starter',
+	  mongoURL: process.env.MONGO_URL, /* || 'mongodb://localhost:27017/mern-starter', */
 	  port: process.env.PORT || 8000
 	};
 	
@@ -2001,10 +2001,10 @@
 	// MongoDB Connection
 	_mongoose2.default.connect(_config2.default.mongoURL, function (error) {
 	  if (error) {
-	    console.error('Please make sure Mongodb is installed and running!'); // eslint-disable-line no-console
+	    console.error('Please make sure Mongodb is installed and running at ', _config2.default.mongoURL); // eslint-disable-line no-console
 	    throw error;
 	  }
-	
+	  console.error('Successfully connected to db  ', _config2.default.mongoURL); // eslint-disable-line no-console
 	  // feed some dummy data in DB.
 	  (0, _dummyData2.default)();
 	});
@@ -2066,7 +2066,7 @@
 	// start app
 	app.listen(_config2.default.port, function (error) {
 	  if (!error) {
-	    console.log('MERN is running on port: ' + _config2.default.port + '! Build something amazing!'); // eslint-disable-line
+	    console.log('Happiness: MERN is running on port: ' + _config2.default.port + '! Build something amazing!'); // eslint-disable-line
 	  }
 	});
 	
